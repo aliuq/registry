@@ -1,3 +1,3 @@
-import { useHelloWorld } from './useHelloWorld'
+import { useLogger } from './useLogger'
 
-export { useHelloWorld }
+export { useLogger }
