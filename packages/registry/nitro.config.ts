@@ -1,11 +1,11 @@
-import { defineNitroConfig } from 'nitropack/config'
+import { defineNitroConfig } from 'nitro/config'
 import { buildHooks } from './server/hooks'
 
 // https://nitro.build/config
 export default defineNitroConfig({
   compatibilityDate: 'latest',
-  srcDir: 'server',
-  preset: 'cloudflare',
+  serverDir: 'server',
+  preset: 'cloudflare_module',
   hooks: buildHooks,
   serverAssets: [
     {
@@ -16,6 +16,11 @@ export default defineNitroConfig({
   cloudflare: {
     nodeCompat: true,
     deployConfig: true,
+  },
+  vercel: {
+    functions: {
+      runtime: 'bun1.x',
+    },
   },
   unenv: {
     alias: {
